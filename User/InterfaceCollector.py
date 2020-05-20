@@ -2,6 +2,16 @@ from PyQt5.QtWidgets import QMainWindow, QApplication, QPushButton
 from PyQt5 import uic
 import sys
 
+def validationChacker():
+    checker = open(r'User\movement.txt', 'r')
+    
+    if checker.read() == 'available':
+        return True
+    else:
+        return False
+    
+    checker.close()
+
 class UI(QMainWindow):
     def __init__(self):
         super(UI, self).__init__()
@@ -28,41 +38,76 @@ class UI(QMainWindow):
         self.show()
     
     def movement1(self):
+        optionAvailable = validationChacker()
 
-        print("Movement 1")
-        chosenMovement = open(r'User\movement.txt', 'w')
-        chosenMovement.write('a')
-        chosenMovement.close()
+        if optionAvailable:
+            print("Movement 1")
+
+            chosenMovement = open(r'User\movement.txt', 'w')
+            chosenMovement.write('a')
+            chosenMovement.close()
+        else:
+            print("\033[1;31mUnavailable!\033[m")
     
     def movement2(self):
-        print("Movement 2")
-        chosenMovement = open(r'User\movement.txt', 'w')
-        chosenMovement.write('b')
-        chosenMovement.close()
+        optionAvailable = validationChacker()
+
+        if optionAvailable:
+            print("Movement 2")
+
+            chosenMovement = open(r'User\movement.txt', 'w')
+            chosenMovement.write('b')
+            chosenMovement.close()
+        else:
+            print("\033[1;31mUnavailable!\033[m")
     
     def movement3(self):
-        print("Movement 3")
-        chosenMovement = open(r'User\movement.txt', 'w')
-        chosenMovement.write('c')
-        chosenMovement.close()
+        optionAvailable = validationChacker()
+
+        if optionAvailable:
+            print("Movement 3")
+            
+            chosenMovement = open(r'User\movement.txt', 'w')
+            chosenMovement.write('c')
+            chosenMovement.close()
+        else:
+            print("\033[1;31mUnavailable!\033[m")
     
     def movement4(self):
-        print("Movement 4")
-        chosenMovement = open(r'User\movement.txt', 'w')
-        chosenMovement.write('d')
-        chosenMovement.close()
+        optionAvailable = validationChacker()
+
+        if optionAvailable:
+            print("Movement 4")
+
+            chosenMovement = open(r'User\movement.txt', 'w')
+            chosenMovement.write('d')
+            chosenMovement.close()
+        else:
+            print("\033[1;31mUnavailable!\033[m")
     
     def movement5(self):
-        print("Movement 5")
-        chosenMovement = open(r'User\movement.txt', 'w')
-        chosenMovement.write('e')
-        chosenMovement.close()
+        optionAvailable = validationChacker()
+
+        if optionAvailable:
+            print("Movement 5")
+            
+            chosenMovement = open(r'User\movement.txt', 'w')
+            chosenMovement.write('e')
+            chosenMovement.close()
+        else:
+            print("\033[1;31mUnavailable!\033[m")
     
     def movement6(self):
-        print("Movement 6")
-        chosenMovement = open(r'User\movement.txt', 'w')
-        chosenMovement.write('f')
-        chosenMovement.close()
+        optionAvailable = validationChacker()
+
+        if optionAvailable:
+            print("Movement 6")
+            
+            chosenMovement = open(r'User\movement.txt', 'w')
+            chosenMovement.write('f')
+            chosenMovement.close()
+        else:
+            print("\033[1;31mUnavailable!\033[m")
     
 
 app = QApplication(sys.argv)
