@@ -1,0 +1,691 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>551</width>
+    <height>451</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Robotic Arm</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+    <item>
+     <widget class="QFrame" name="BlueBar">
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(0, 150, 255);</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QFrame" name="Movements">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(110, 110, 110);</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QGridLayout" name="gridLayout">
+       <item row="0" column="0">
+        <widget class="QPushButton" name="Movement1">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>80</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+	background-color: rgb(0, 170, 255);
+	border-radius: 5px;
+}
+
+QPushButton:hover {
+	background-color: rgb(20, 190, 255);
+}
+
+QPushButton:pressed {
+	background-color: rgb(0, 150, 235);
+}</string>
+         </property>
+         <property name="text">
+          <string>Movement 1</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QPushButton" name="Movement2">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>80</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+	background-color: rgb(0, 170, 255);
+	border-radius: 5px;
+}
+
+QPushButton:hover {
+	background-color: rgb(20, 190, 255);
+}
+
+QPushButton:pressed {
+	background-color: rgb(0, 150, 235);
+}</string>
+         </property>
+         <property name="text">
+          <string>Movement 2</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="2">
+        <widget class="QPushButton" name="Movement3">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>80</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+	background-color: rgb(0, 170, 255);
+	border-radius: 5px;
+}
+
+QPushButton:hover {
+	background-color: rgb(20, 190, 255);
+}
+
+QPushButton:pressed {
+	background-color: rgb(0, 150, 235);
+}</string>
+         </property>
+         <property name="text">
+          <string>Movement 3</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="3">
+        <widget class="QPushButton" name="Movement4">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>80</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+	background-color: rgb(0, 170, 255);
+	border-radius: 5px;
+}
+
+QPushButton:hover {
+	background-color: rgb(20, 190, 255);
+}
+
+QPushButton:pressed {
+	background-color: rgb(0, 150, 235);
+}</string>
+         </property>
+         <property name="text">
+          <string>Movement 4</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="4">
+        <widget class="QPushButton" name="Movement5">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>80</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+	background-color: rgb(0, 170, 255);
+	border-radius: 5px;
+}
+
+QPushButton:hover {
+	background-color: rgb(20, 190, 255);
+}
+
+QPushButton:pressed {
+	background-color: rgb(0, 150, 235);
+}</string>
+         </property>
+         <property name="text">
+          <string>Movement 5</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="5">
+        <widget class="QPushButton" name="Movement6">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>80</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+	background-color: rgb(0, 170, 255);
+	border-radius: 5px;
+}
+
+QPushButton:hover {
+	background-color: rgb(20, 190, 255);
+}
+
+QPushButton:pressed {
+	background-color: rgb(0, 150, 235);
+}</string>
+         </property>
+         <property name="text">
+          <string>Movement 6</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QFrame" name="Controls">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(110, 110, 110);</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_2">
+       <item row="0" column="0" colspan="3">
+        <widget class="QPushButton" name="OpenTheClaw">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>166</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+	background-color: rgb(0, 170, 255);
+	border-radius: 5px;
+}
+
+QPushButton:hover {
+	background-color: rgb(20, 190, 255);
+}
+
+QPushButton:pressed {
+	background-color: rgb(0, 150, 235);
+}</string>
+         </property>
+         <property name="text">
+          <string>Open the Claw</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0" colspan="3">
+        <widget class="QPushButton" name="CloseTheClaw">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>166</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+	background-color: rgb(0, 170, 255);
+	border-radius: 5px;
+}
+
+QPushButton:hover {
+	background-color: rgb(20, 190, 255);
+}
+
+QPushButton:pressed {
+	background-color: rgb(0, 150, 235);
+}</string>
+         </property>
+         <property name="text">
+          <string>Close the Claw</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1" colspan="2">
+        <widget class="QPushButton" name="RaizeTheClaw">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>80</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+	background-color: rgb(0, 170, 255);
+	border-radius: 5px;
+}
+
+QPushButton:hover {
+	background-color: rgb(20, 190, 255);
+}
+
+QPushButton:pressed {
+	background-color: rgb(0, 150, 235);
+}</string>
+         </property>
+         <property name="text">
+          <string>Raize the Claw</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="3">
+        <widget class="QPushButton" name="UpS3">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>80</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+	background-color: rgb(0, 170, 255);
+	border-radius: 5px;
+}
+
+QPushButton:hover {
+	background-color: rgb(20, 190, 255);
+}
+
+QPushButton:pressed {
+	background-color: rgb(0, 150, 235);
+}</string>
+         </property>
+         <property name="text">
+          <string>Up S3</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="4">
+        <widget class="QPushButton" name="DownS2">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>80</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+	background-color: rgb(0, 170, 255);
+	border-radius: 5px;
+}
+
+QPushButton:hover {
+	background-color: rgb(20, 190, 255);
+}
+
+QPushButton:pressed {
+	background-color: rgb(0, 150, 235);
+}</string>
+         </property>
+         <property name="text">
+          <string>Down S2</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="4">
+        <widget class="QPushButton" name="UpS2">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>80</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+	background-color: rgb(0, 170, 255);
+	border-radius: 5px;
+}
+
+QPushButton:hover {
+	background-color: rgb(20, 190, 255);
+}
+
+QPushButton:pressed {
+	background-color: rgb(0, 150, 235);
+}</string>
+         </property>
+         <property name="text">
+          <string>Up S2</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="3">
+        <widget class="QPushButton" name="DownS3">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>80</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+	background-color: rgb(0, 170, 255);
+	border-radius: 5px;
+}
+
+QPushButton:hover {
+	background-color: rgb(20, 190, 255);
+}
+
+QPushButton:pressed {
+	background-color: rgb(0, 150, 235);
+}</string>
+         </property>
+         <property name="text">
+          <string>Down S3</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QPushButton" name="DropTheClaw">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>80</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+	background-color: rgb(0, 170, 255);
+	border-radius: 5px;
+}
+
+QPushButton:hover {
+	background-color: rgb(20, 190, 255);
+}
+
+QPushButton:pressed {
+	background-color: rgb(0, 150, 235);
+}</string>
+         </property>
+         <property name="text">
+          <string>Drop the Claw</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="QPushButton" name="RotateRight">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>80</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+	background-color: rgb(0, 170, 255);
+	border-radius: 5px;
+}
+
+QPushButton:hover {
+	background-color: rgb(20, 190, 255);
+}
+
+QPushButton:pressed {
+	background-color: rgb(0, 150, 235);
+}</string>
+         </property>
+         <property name="text">
+          <string>Rotate Right</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QPushButton" name="RotateLeft">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>80</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+	background-color: rgb(0, 170, 255);
+	border-radius: 5px;
+}
+
+QPushButton:hover {
+	background-color: rgb(20, 190, 255);
+}
+
+QPushButton:pressed {
+	background-color: rgb(0, 150, 235);
+}</string>
+         </property>
+         <property name="text">
+          <string>Rotate Left</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="3">
+        <widget class="QPushButton" name="Left">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>80</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+	background-color: rgb(0, 170, 255);
+	border-radius: 5px;
+}
+
+QPushButton:hover {
+	background-color: rgb(20, 190, 255);
+}
+
+QPushButton:pressed {
+	background-color: rgb(0, 150, 235);
+}</string>
+         </property>
+         <property name="text">
+          <string>Left</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="4">
+        <widget class="QPushButton" name="Right">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>80</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+	background-color: rgb(0, 170, 255);
+	border-radius: 5px;
+}
+
+QPushButton:hover {
+	background-color: rgb(20, 190, 255);
+}
+
+QPushButton:pressed {
+	background-color: rgb(0, 150, 235);
+}</string>
+         </property>
+         <property name="text">
+          <string>Right</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>551</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
