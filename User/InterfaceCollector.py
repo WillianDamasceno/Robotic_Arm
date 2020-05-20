@@ -1,6 +1,7 @@
 from PyQt5.QtWidgets import QMainWindow, QApplication, QPushButton
 from PyQt5 import uic
 import sys
+import os
 
 def validationChacker():
     checker = open(r'User\movement.txt', 'r')
@@ -46,6 +47,8 @@ class UI(QMainWindow):
             chosenMovement = open(r'User\movement.txt', 'w')
             chosenMovement.write('a')
             chosenMovement.close()
+
+            os.startfile(r'Arm\ArmController.py')
         else:
             print("\033[1;31mUnavailable!\033[m")
     
@@ -58,6 +61,8 @@ class UI(QMainWindow):
             chosenMovement = open(r'User\movement.txt', 'w')
             chosenMovement.write('b')
             chosenMovement.close()
+
+            os.startfile(r'Arm\ArmController.py')
         else:
             print("\033[1;31mUnavailable!\033[m")
     
@@ -70,6 +75,8 @@ class UI(QMainWindow):
             chosenMovement = open(r'User\movement.txt', 'w')
             chosenMovement.write('c')
             chosenMovement.close()
+
+            os.startfile(r'Arm\ArmController.py')
         else:
             print("\033[1;31mUnavailable!\033[m")
     
@@ -82,6 +89,8 @@ class UI(QMainWindow):
             chosenMovement = open(r'User\movement.txt', 'w')
             chosenMovement.write('d')
             chosenMovement.close()
+
+            os.startfile(r'Arm\ArmController.py')
         else:
             print("\033[1;31mUnavailable!\033[m")
     
@@ -94,6 +103,8 @@ class UI(QMainWindow):
             chosenMovement = open(r'User\movement.txt', 'w')
             chosenMovement.write('e')
             chosenMovement.close()
+
+            os.startfile(r'Arm\ArmController.py')
         else:
             print("\033[1;31mUnavailable!\033[m")
     
@@ -106,6 +117,8 @@ class UI(QMainWindow):
             chosenMovement = open(r'User\movement.txt', 'w')
             chosenMovement.write('f')
             chosenMovement.close()
+
+            os.startfile(r'Arm\ArmController.py')
         else:
             print("\033[1;31mUnavailable!\033[m")
     
