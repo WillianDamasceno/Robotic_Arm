@@ -64,144 +64,144 @@ void setup() {
 }
 
 void loop() {
-
  
-  while(Serial.available()<=0){
+  while (Serial.available() <= 0) {
     //O while é que espera ter informaçoes para ler.
     ;   
   }
-  if(Serial.available()>0){
+
+  if (Serial.available() > 0) {
     rx = Serial.read();
   }
   
-  if(rx == 'a'){
+  if (rx == 'a') {
     MOVE(10, 20, 30, 40, 50, 60);
   }
-  if(rx == 'b'){
+  if (rx == 'b') {
     MOVE(10, 20, 30, 40, 50, 60);
   }
-  if(rx == 'c'){
+  if (rx == 'c') {
     MOVE(10, 20, 30, 40, 50, 60);
   }
-  if(rx == 'd'){
+  if (rx == 'd') {
     MOVE(10, 20, 30, 40, 50, 60);
   }
-  if(rx == 'e'){
+  if (rx == 'e') {
     MOVE(10, 20, 30, 40, 50, 60);
   }
-  if(rx == 'f'){
+  if (rx == 'f') {
     MOVE(10, 20, 30, 40, 50, 60);
   }
 
   
   //Servo 1 =========================
-  if(rx == 'g'){
+  if (rx == 'g') {
     int c = servo1.read();
-    if(0<= c && c <180){
-      c = c+1;
+    if (0 <= c && c < 180) {
+      c++;
       servo1.write(c, SPEED);
     }
   }
-  if(rx == 'h'){
+  if (rx == 'h') {
     int c = servo1.read();
-    if(0<c && c<=180){
-      c = c-1;
+    if (0 < c && c <= 180) {
+      c--;
       servo1.write(c, SPEED);
     }
   }
 
   //Servo 2 =========================
-  if(rx == 'i'){
+  if (rx == 'i') {
     int c = servo1.read();
-    if(0<= c && c <180){
-      c = c+1;
+    if (0 <= c && c < 180) {
+      c++;
       servo1.write(c, SPEED);
     }
   }
-  if(rx == 'j'){
+  if (rx == 'j') {
     int c = servo1.read();
-    if(0<c && c<=180){
-      c = c-1;
+    if (0 < c && c <= 180) {
+      c--;
       servo1.write(c, SPEED);
     }
   }
  
   //Servo 3 =========================
-  if(rx == 'k'){
+  if (rx == 'k'){
     int c = servo1.read();
-    if(0<= c && c <180){
-      c = c+1;
+    if (0 <= c && c < 180) {
+      c++;
       servo1.write(c, SPEED);
     }
   }
-  if(rx == 'l'){
+  if (rx == 'l') {
     int c = servo1.read();
-    if(0<c && c<=180){
-      c = c-1;
+    if (0 < c && c <= 180) {
+      c--;
       servo1.write(c, SPEED);
     }
   }
 
   //Servo 4 =========================
-  if(rx == 'm'){
+  if (rx == 'm') {
     int c = servo1.read();
-    if(0<= c && c <180){
-      c = c+1;
+    if (0 <= c && c < 180) {
+      c++;
       servo1.write(c, SPEED);
     }
   }
-  if(rx == 'n'){
+  if (rx == 'n') {
     int c = servo1.read();
-    if(0<c && c<=180){
-      c = c-1;
+    if (0 < c && c <= 180) {
+      c--;
       servo1.write(c, SPEED);
     }
   }
 
   //Servo 5 =========================
-  if(rx == 'o'){
+  if (rx == 'o') {
     int c = servo1.read();
-    if(0<= c && c <180){
-      c = c+1;
+    if (0 <= c && c < 180) {
+      c++;
       servo1.write(c, SPEED);
     }
   }
-  if(rx == 'p'){
+  if (rx == 'p') {
     int c = servo1.read();
-    if(0<c && c<=180){
-      c = c-1;
+    if (0 < c && c <= 180) {
+      c--;
       servo1.write(c, SPEED);
     }
   }
 
   //Servo 6 =========================
-  if(rx == 'q'){
+  if (rx == 'q') {
     int c = servo1.read();
-    if(0<= c && c <180){
-      c = c+1;
+    if (0 <= c && c < 180) {
+      c++;
       servo1.write(c, SPEED);
     }
   }
-  if(rx == 'r'){
+  if (rx == 'r') {
     int c = servo1.read();
-    if(0<c && c<=180){
-      c = c-1;
+    if (0 < c && c <= 180) {
+      c--;
       servo1.write(c, SPEED);
     }
   }
 
   //Servo 7 =========================
-  if(rx == 's'){    
+  if (rx == 's') {
     GRIPPER(true, 5);
   }
-  if(rx == 't'){
+  if (rx == 't') {
     GRIPPER(false);
   }
 
 
 }
 
-void MOVE(int J1, int J2, int J3, int J4, int J5, int J6){
+void MOVE(int J1, int J2, int J3, int J4, int J5, int J6) {
     
     int a1 = map(J1, -90, 90, 0, 180);
     int a2 = map(J2, -40, 50, 0, 180);
@@ -227,12 +227,12 @@ void MOVE(int J1, int J2, int J3, int J4, int J5, int J6){
     delay(1000);
 }
 
-void GRIPPER(bool Close, int Degree){ 
-  if(Close){
-    servo7.write(Degree+100, SPEED);       
+void GRIPPER(bool Close, int Degree) { 
+  if (Close) {
+    servo7.write(Degree + 100, SPEED);       
   }
-  else{
-    servo7.write(50+100, SPEED);
+  else {
+    servo7.write(50 + 100, SPEED);
   //Soma 100 por conta de defeito mecânico em servo7.
   }
 }
