@@ -1,42 +1,40 @@
 from PyQt5.QtWidgets import QMainWindow, QApplication, QPushButton
 from PyQt5 import uic
+
+from time import sleep
+import serial
 import sys
-import os
+
 
 def validationChacker():
-    checker = open(r'User\movement.txt', 'r')
-    
-    if checker.read() == 'available':
+    validation = open('User\\movement.txt', 'r')
+
+    if validation.readline() == 'available':
+        validation.close()
+        print('\033[1;32mAvailable!\033[m')
         return True
+
     else:
+        validation.close()
+        print('\033[1;31mUnavailable!\033[m')
         return False
-    
-    checker.close()
 
 
 def movementTextSender(text=''):
-    chosenMovement = open(r'User\movement.txt', 'w')
-    chosenMovement.write(text)
-    chosenMovement.close()
+    
+    if validationChacker():
+        validation = open('User\\movement.txt', 'w')
+        validation.write('unavailable')
+        validation.close()
 
-
-def buttonListener(movementLetter=''):
-    optionAvailable = validationChacker()
-
-    if optionAvailable:
-        movementTextSender(movementLetter)
-        os.startfile(r'Arm\ArmController.py')
-
-        print('\033[1;32mAvailable!\033[m')
-
-    else:
-        print('\033[1;31mUnavailable!\033[m')
+        movementLetter = bytes(text, 'utf-8')
+        arduino.write(movementLetter)
 
 
 class UI(QMainWindow):
     def __init__(self):
         super(UI, self).__init__()
-        uic.loadUi(r"User\UserInterface.ui", self)
+        uic.loadUi("User\\UserInterface.ui", self)
 
         # Definindo os botões de movimentos pré programados
         self.movement1_button = self.findChild(QPushButton, 'Movement1')
@@ -58,8 +56,6 @@ class UI(QMainWindow):
         self.movement6_button.clicked.connect(self.movement6)
         # Botões pré programados finalizados
 
-        ################################################################
-
         # Definindo os botões de movimentos independentes
         self.toTheRight_button = self.findChild(QPushButton, 'Right')
         self.toTheRight_button.clicked.connect(self.toTheRight)
@@ -69,66 +65,54 @@ class UI(QMainWindow):
         # Botões de movimentos independentes finalizados
 
         self.show()
-    
-    ################################################################
 
     # Definindo as funções de cada botão de movimento pré programado
     def movement1(self):
         print('\nMovement 1:')
-        buttonListener('a')
+        movementTextSender('a')
     
     def movement2(self):
         print('\nMovement 2:')
-        buttonListener('b')
+        movementTextSender('b')
     
     def movement3(self):
         print('\nMovement 3:')
-        buttonListener('c')
+        movementTextSender('c')
     
     def movement4(self):
         print('\nMovement 4:')
-        buttonListener('d')
+        movementTextSender('d')
     
     def movement5(self):
         print('\nMovement 5:')
-        buttonListener('e')
+        movementTextSender('e')
     
     def movement6(self):
         print('\nMovement 6:')
-        buttonListener('f')
+        movementTextSender('f')
     # Definições das funções finalizadas
-
-    ##############################################################
 
     # Definindo as funções de cada botão de movimento independente
     def toTheRight(self):
-        optionAvailable = validationChacker()
-
-        if optionAvailable:
-            print('Moving to the right')
-            
-            movementTextSender('Untitled')
-
-            os.startfile(r'Arm\ArmController.py')
-        else:
-            print('\033[1;31mUnavailable!\033[m')
+        print('\nMoving to the right')
+        movementTextSender('g')
     
     def toTheLeft(self):
-        optionAvailable = validationChacker()
-
-        if optionAvailable:
-            print('Moving to the left')
-            
-            movementTextSender('Untitled')
-
-            os.startfile(r'Arm\ArmController.py')
-        else:
-            print('\033[1;31mUnavailable!\033[m')
+        print('\nMoving to the left')
+        movementTextSender('h')
     # Definições das funções finalizadas
 
 
-movementTextSender('available')
+arduinoConnection = False
+arduino = serial.Serial('COM4', baudrate=9600, timeout=1)
+
+validation = open('User\\movement.txt', 'w')
+validation.write('available')
+validation.close()
+
 
 app = QApplication(sys.argv)
 UIWindow = UI()
+
+sleep(3)
 app.exec_()
