@@ -1,4 +1,4 @@
-  /* Robot_script  criado em maio de 2020 
+  /* Robot_script  criado em maio de 2020. 
 
   Algoritmo para controle de braço robótico 6 eixos + garra;
   Funciona apenas com scipt Python;
