@@ -45,12 +45,6 @@ VarSpeedServo servo5;
 VarSpeedServo servo6;
 VarSpeedServo servo7;
 
-//////////////////// Código do Willian ////////////////////
-#include <iostream>
-#include <fstream>
-
-ofstream movementFile;
-/////////////////////////// Fim ///////////////////////////
 
 
 void setup() {
@@ -84,39 +78,27 @@ void loop() {
   
   if (rx == 'a') {
     MOVE(10, 20, 30, 40, 50, 60);
-    movementFile.open("User\\movement.txt"); ///
-    movementFile << "available"; ///
-    movementFile.close(); ///
+
   }
   if (rx == 'b') {
     MOVE(10, 20, 30, 40, 50, 60);
-    movementFile.open("User\\movement.txt"); ///
-    movementFile << "available"; ///
-    movementFile.close(); ///
+
   }
   if (rx == 'c') {
     MOVE(10, 20, 30, 40, 50, 60);
-    movementFile.open("User\\movement.txt"); ///
-    movementFile << "available"; ///
-    movementFile.close(); ///
+  
   }
   if (rx == 'd') {
     MOVE(10, 20, 30, 40, 50, 60);
-    movementFile.open("User\\movement.txt"); ///
-    movementFile << "available"; ///
-    movementFile.close(); ///
+   
   }
   if (rx == 'e') {
     MOVE(10, 20, 30, 40, 50, 60);
-    movementFile.open("User\\movement.txt"); ///
-    movementFile << "available"; ///
-    movementFile.close(); ///
+   
   }
   if (rx == 'f') {
     MOVE(10, 20, 30, 40, 50, 60);
-    movementFile.open("User\\movement.txt"); ///
-    movementFile << "available"; ///
-    movementFile.close(); ///
+
   }
 
   
