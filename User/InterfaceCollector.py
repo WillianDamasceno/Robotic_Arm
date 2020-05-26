@@ -1,5 +1,26 @@
-from PyQt5.QtWidgets import QMainWindow, QApplication, QPushButton
+"""
+Para converter .py para .exe:
+
+    Com tela preta:
+    cmd: pyintaller -F fileName.py
+
+    Sem tela preta:
+    cmd: pyinstaller --windowed -F fileName.py
+
+    Com icon, basta escrever o seguinte antes de -F:
+    -i "iconName.ico"
+
+Para converter .ui para .py:
+    cmd: pyuic5 -x fileName.ui -o fileName.py
+
+"""
+
 from PyQt5 import uic
+
+from PyQt5.QtWidgets import QApplication, QMainWindow
+from PyQt5.QtWidgets import QPushButton
+
+from PyQt5.QtGui import QIcon
 
 from time import sleep
 import serial
@@ -10,11 +31,13 @@ def validationChacker():
     validation = open('User\\movement.txt', 'r')
 
     if validation.readline() == 'available':
+        validation.seek(0)
         validation.close()
         print('\033[1;32mAvailable!\033[m')
         return True
 
     else:
+        validation.seek(0)
         validation.close()
         print('\033[1;31mUnavailable!\033[m')
         return False
@@ -35,6 +58,11 @@ class UI(QMainWindow):
     def __init__(self):
         super(UI, self).__init__()
         uic.loadUi("User\\UserInterface.ui", self)
+
+        # Configurando a interface
+        self.setWindowTitle('Robotic Arm')
+        self.resize(500, 270)
+        # self.setWindowIcon(QIcon("static\\logo.ico"))
 
         # Definindo os botões de movimentos pré programados
         self.movement1_button = self.findChild(QPushButton, 'Movement1')
@@ -110,9 +138,8 @@ validation = open('User\\movement.txt', 'w')
 validation.write('available')
 validation.close()
 
+sleep(3)
 
 app = QApplication(sys.argv)
 UIWindow = UI()
-
-sleep(3)
-app.exec_()
+sys.exit(app.exec_())
