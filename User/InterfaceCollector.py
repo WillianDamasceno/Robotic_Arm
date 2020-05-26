@@ -28,8 +28,15 @@ import sys
 
 
 def validationChacker():
-    validation = open('C:\\Users\\Tiago\\Documents\\GitHub\\Robotic_Arm\\User\\movemente.txt', 'r')
+    a = arduino.readline().rstrip()
+    print(a)
+    if arduino.readline().rstrip() == 'b\'available\'':
+        validation = open('C:\\Users\\Tiago\\Documents\\GitHub\\Robotic_Arm\\User\\movement.txt', 'w')
+        validation.write('available')
+        validation.seek(0)
+        validation.close()
 
+    validation = open('C:\\Users\\Tiago\\Documents\\GitHub\\Robotic_Arm\\User\\movement.txt', 'r')
     if validation.readline() == 'available':
         validation.seek(0)
         validation.close()
@@ -46,7 +53,7 @@ def validationChacker():
 def movementTextSender(text=''):
     
     if validationChacker():
-        validation = open('C:\\Users\\Tiago\\Documents\\GitHub\\Robotic_Arm\\User\\movemente.txt', 'w')
+        validation = open('C:\\Users\\Tiago\\Documents\\GitHub\\Robotic_Arm\\User\\movement.txt', 'w')
         validation.write('unavailable')
         validation.close()
 
@@ -134,7 +141,7 @@ class UI(QMainWindow):
 arduinoConnection = False
 arduino = serial.Serial('COM4', baudrate=9600, timeout=1)
 
-validation = open('C:\\Users\\Tiago\\Documents\\GitHub\\Robotic_Arm\\User\\movemente.txt', 'w')
+validation = open('C:\\Users\\Tiago\\Documents\\GitHub\\Robotic_Arm\\User\\movement.txt', 'w')
 validation.write('available')
 validation.close()
 

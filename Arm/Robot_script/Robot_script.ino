@@ -78,26 +78,32 @@ void loop() {
   
   if (rx == 'a') {
     MOVE(10, 20, 30, 40, 50, 60);
+    Serial.println("available");
 
   }
   if (rx == 'b') {
     MOVE(10, 20, 30, 40, 50, 60);
+    Serial.println("available");
 
   }
   if (rx == 'c') {
     MOVE(10, 20, 30, 40, 50, 60);
+    Serial.println("available");
   
   }
   if (rx == 'd') {
     MOVE(10, 20, 30, 40, 50, 60);
+    Serial.println("available");
    
   }
   if (rx == 'e') {
     MOVE(10, 20, 30, 40, 50, 60);
+    Serial.println("available");
    
   }
   if (rx == 'f') {
     MOVE(10, 20, 30, 40, 50, 60);
+    Serial.println("available");
 
   }
 
@@ -108,6 +114,7 @@ void loop() {
     if (0 <= c && c < 180) {
       c++;
       servo1.write(c, SPEED);
+      Serial.println("available");
     }
   }
   if (rx == 'h') {
@@ -115,6 +122,7 @@ void loop() {
     if (0 < c && c <= 180) {
       c--;
       servo1.write(c, SPEED);
+      Serial.println("available");
     }
   }
 
@@ -124,6 +132,7 @@ void loop() {
     if (0 <= c && c < 180) {
       c++;
       servo1.write(c, SPEED);
+      Serial.println("available");
     }
   }
   if (rx == 'j') {
@@ -131,6 +140,7 @@ void loop() {
     if (0 < c && c <= 180) {
       c--;
       servo1.write(c, SPEED);
+      Serial.println("available");
     }
   }
  
@@ -140,6 +150,7 @@ void loop() {
     if (0 <= c && c < 180) {
       c++;
       servo1.write(c, SPEED);
+      Serial.println("available");
     }
   }
   if (rx == 'l') {
@@ -147,6 +158,7 @@ void loop() {
     if (0 < c && c <= 180) {
       c--;
       servo1.write(c, SPEED);
+      Serial.println("available");
     }
   }
 
@@ -156,6 +168,7 @@ void loop() {
     if (0 <= c && c < 180) {
       c++;
       servo1.write(c, SPEED);
+      Serial.println("available");
     }
   }
   if (rx == 'n') {
@@ -163,6 +176,7 @@ void loop() {
     if (0 < c && c <= 180) {
       c--;
       servo1.write(c, SPEED);
+      Serial.println("available");
     }
   }
 
@@ -172,6 +186,7 @@ void loop() {
     if (0 <= c && c < 180) {
       c++;
       servo1.write(c, SPEED);
+      Serial.println("available");
     }
   }
   if (rx == 'p') {
@@ -179,6 +194,7 @@ void loop() {
     if (0 < c && c <= 180) {
       c--;
       servo1.write(c, SPEED);
+      Serial.println("available");
     }
   }
 
@@ -188,6 +204,7 @@ void loop() {
     if (0 <= c && c < 180) {
       c++;
       servo1.write(c, SPEED);
+      Serial.println("available");
     }
   }
   if (rx == 'r') {
@@ -195,15 +212,18 @@ void loop() {
     if (0 < c && c <= 180) {
       c--;
       servo1.write(c, SPEED);
+      Serial.println("available");
     }
   }
 
   //Servo 7 =========================
   if (rx == 's') {
     GRIPPER(true, 5);
+    Serial.println("available");
   }
   if (rx == 't') {
     GRIPPER(false);
+    Serial.println("available");
   }
 
 
