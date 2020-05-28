@@ -77,36 +77,29 @@ void loop() {
   }
   
   if (rx == 'a') {
-    MOVE(10, 20, 30, 40, 50, 60);
+    MOVE(0, 0, 0, 0, 0, 0);
     Serial.println("available");
-
   }
   if (rx == 'b') {
-    MOVE(10, 20, 30, 40, 50, 60);
+    MOVE(0, 1, 16, 0, 71, 0);
     Serial.println("available");
-
   }
   if (rx == 'c') {
-    MOVE(10, 20, 30, 40, 50, 60);
+    MOVE(-35, 24, -9, 1, 74, -35);
     Serial.println("available");
-  
   }
   if (rx == 'd') {
-    MOVE(10, 20, 30, 40, 50, 60);
+    MOVE(33, 20, -4, -1, 72, 33);
     Serial.println("available");
-   
   }
   if (rx == 'e') {
-    MOVE(10, 20, 30, 40, 50, 60);
+    MOVE(20, -7, -10, -14, 67, 20);
     Serial.println("available");
-   
   }
   if (rx == 'f') {
-    MOVE(10, 20, 30, 40, 50, 60);
+    MOVE(90, -7, 10, -14, 67, 20);
     Serial.println("available");
-
   }
-
   
   //Servo 1 =========================
   if (rx == 'g') {

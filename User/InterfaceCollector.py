@@ -29,24 +29,10 @@ import os
 
 
 def validationChacker():
-    a = len(arduino.readline())
-    print(a)
-    if len(arduino.readline()) == a:
-        #validation = open('C:\\Users\\Tiago\\Documents\\GitHub\\Robotic_Arm\\User\\movement.txt', 'w') ///
-        #validation.write('available') ///
-        #validation.seek(0) ///
-        #validation.close() ///
-
-    #validation = open('C:\\Users\\Tiago\\Documents\\GitHub\\Robotic_Arm\\User\\movement.txt', 'r') ///
-    #if validation.readline() == 'available': ///
-        #validation.seek(0) ///
-        #validation.close() ///
+    if len(arduino.readline()) == 11:
         print('\033[1;32mAvailable!\033[m')
         return True
-
     else:
-        #validation.seek(0) ///
-        #validation.close() ///
         print('\033[1;31mUnavailable!\033[m')
         return False
 
@@ -54,19 +40,16 @@ def validationChacker():
 def movementTextSender(letter='', msg=''):
     print(msg)
     if validationChacker():
-        #validation = open('C:\\Users\\Tiago\\Documents\\GitHub\\Robotic_Arm\\User\\movement.txt', 'w') ///
-        #validation.write('unavailable') ///
-        #validation.close() ///
-
         movementLetter = bytes(letter, 'utf-8')
         arduino.write(movementLetter)
+        sleep(0.0001) # test
+        arduino.write('unavailable')# test
 
 
 class UI(QMainWindow):
     def __init__(self):
         super(UI, self).__init__()
-        #uic.loadUi("C:\\Users\\Tiago\\Documents\\GitHub\\Robotic_Arm\\User\\UserInterface.ui", self)
-        uic.loadUi(f"{os.getcwd()}\\User\\UserInterface.ui", self)
+        uic.loadUi(f"{os.path.dirname(os.path.realpath(__file__))}\\UserInterface.ui", self)
 
         # Configurando a interface
         self.setWindowTitle('Robotic Arm')
@@ -74,7 +57,7 @@ class UI(QMainWindow):
         # self.setWindowIcon(QIcon("static\\logo.ico"))
 
         # Definindo os botões de movimentos pré programados
-        self.movement1_button = self.findChild(QPushButton(), 'Movement1')
+        self.movement1_button = self.findChild(QPushButton, 'Movement1')
         self.movement1_button.clicked.connect(self.movement1)
 
         self.movement2_button = self.findChild(QPushButton, 'Movement2')
@@ -132,13 +115,7 @@ class UI(QMainWindow):
     # Definições das funções finalizadas
 
 
-#arduinoConnection = False ///
 arduino = serial.Serial('COM4', baudrate=9600, timeout=1)
-
-#validation = open('C:\\Users\\Tiago\\Documents\\GitHub\\Robotic_Arm\\User\\movement.txt', 'w') ///
-#validation.write('available') /// 
-#validation.close() ///
-
 sleep(3)
 
 app = QApplication(sys.argv)
