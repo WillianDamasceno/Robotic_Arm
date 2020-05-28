@@ -25,27 +25,28 @@ from PyQt5.QtGui import QIcon
 from time import sleep
 import serial
 import sys
+import os
 
 
 def validationChacker():
-    a = arduino.readline().rstrip()
+    a = bytes(arduino.readline())
     print(a)
-    if arduino.readline().rstrip() == 'b\'available\'':
-        validation = open('C:\\Users\\Tiago\\Documents\\GitHub\\Robotic_Arm\\User\\movement.txt', 'w')
-        validation.write('available')
-        validation.seek(0)
-        validation.close()
+    if bytes(arduino.readline()) == a:
+        #validation = open('C:\\Users\\Tiago\\Documents\\GitHub\\Robotic_Arm\\User\\movement.txt', 'w') ///
+        #validation.write('available') ///
+        #validation.seek(0) ///
+        #validation.close() ///
 
-    validation = open('C:\\Users\\Tiago\\Documents\\GitHub\\Robotic_Arm\\User\\movement.txt', 'r')
-    if validation.readline() == 'available':
-        validation.seek(0)
-        validation.close()
+    #validation = open('C:\\Users\\Tiago\\Documents\\GitHub\\Robotic_Arm\\User\\movement.txt', 'r') ///
+    #if validation.readline() == 'available': ///
+        #validation.seek(0) ///
+        #validation.close() ///
         print('\033[1;32mAvailable!\033[m')
         return True
 
     else:
-        validation.seek(0)
-        validation.close()
+        #validation.seek(0) ///
+        #validation.close() ///
         print('\033[1;31mUnavailable!\033[m')
         return False
 
@@ -53,9 +54,9 @@ def validationChacker():
 def movementTextSender(text=''):
     
     if validationChacker():
-        validation = open('C:\\Users\\Tiago\\Documents\\GitHub\\Robotic_Arm\\User\\movement.txt', 'w')
-        validation.write('unavailable')
-        validation.close()
+        #validation = open('C:\\Users\\Tiago\\Documents\\GitHub\\Robotic_Arm\\User\\movement.txt', 'w') ///
+        #validation.write('unavailable') ///
+        #validation.close() ///
 
         movementLetter = bytes(text, 'utf-8')
         arduino.write(movementLetter)
@@ -64,7 +65,8 @@ def movementTextSender(text=''):
 class UI(QMainWindow):
     def __init__(self):
         super(UI, self).__init__()
-        uic.loadUi("C:\\Users\\Tiago\\Documents\\GitHub\\Robotic_Arm\\User\\UserInterface.ui", self)
+        #uic.loadUi("C:\\Users\\Tiago\\Documents\\GitHub\\Robotic_Arm\\User\\UserInterface.ui", self)
+        uic.loadUi(f"{os.getcwd()}\\User\\UserInterface.ui", self)
 
         # Configurando a interface
         self.setWindowTitle('Robotic Arm')
@@ -138,12 +140,12 @@ class UI(QMainWindow):
     # Definições das funções finalizadas
 
 
-arduinoConnection = False
+#arduinoConnection = False ///
 arduino = serial.Serial('COM4', baudrate=9600, timeout=1)
 
-validation = open('C:\\Users\\Tiago\\Documents\\GitHub\\Robotic_Arm\\User\\movement.txt', 'w')
-validation.write('available')
-validation.close()
+#validation = open('C:\\Users\\Tiago\\Documents\\GitHub\\Robotic_Arm\\User\\movement.txt', 'w') ///
+#validation.write('available') /// 
+#validation.close() ///
 
 sleep(3)
 

@@ -1,16 +1,16 @@
-import sys
+"""import sys
 import glob
 import serial
 
 
 def serial_ports():
-    """ Lists serial port names
+    " Lists serial port names
 
         :raises EnvironmentError:
             On unsupported or unknown platforms
         :returns:
             A list of the serial ports available on the system
-    """
+    ""
     
     if sys.platform.startswith('win'):
         ports = ['COM%s' % (i + 1) for i in range(256)]
@@ -33,4 +33,12 @@ def serial_ports():
     return result
 
 
-print(serial_ports())
+print(serial_ports())"""
+
+import os
+
+dir_path = os.path.dirname(os.path.realpath(__file__))
+print(dir_path)
+
+cwd = os.getcwd()
+print(cwd)
