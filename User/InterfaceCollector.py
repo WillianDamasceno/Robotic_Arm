@@ -29,9 +29,9 @@ import os
 
 
 def validationChacker():
-    a = bytes(arduino.readline())
+    a = len(arduino.readline())
     print(a)
-    if bytes(arduino.readline()) == a:
+    if len(arduino.readline()) == a:
         #validation = open('C:\\Users\\Tiago\\Documents\\GitHub\\Robotic_Arm\\User\\movement.txt', 'w') ///
         #validation.write('available') ///
         #validation.seek(0) ///
@@ -51,14 +51,14 @@ def validationChacker():
         return False
 
 
-def movementTextSender(text=''):
-    
+def movementTextSender(letter='', msg=''):
+    print(msg)
     if validationChacker():
         #validation = open('C:\\Users\\Tiago\\Documents\\GitHub\\Robotic_Arm\\User\\movement.txt', 'w') ///
         #validation.write('unavailable') ///
         #validation.close() ///
 
-        movementLetter = bytes(text, 'utf-8')
+        movementLetter = bytes(letter, 'utf-8')
         arduino.write(movementLetter)
 
 
@@ -74,7 +74,7 @@ class UI(QMainWindow):
         # self.setWindowIcon(QIcon("static\\logo.ico"))
 
         # Definindo os botões de movimentos pré programados
-        self.movement1_button = self.findChild(QPushButton, 'Movement1')
+        self.movement1_button = self.findChild(QPushButton(), 'Movement1')
         self.movement1_button.clicked.connect(self.movement1)
 
         self.movement2_button = self.findChild(QPushButton, 'Movement2')
@@ -105,38 +105,30 @@ class UI(QMainWindow):
 
     # Definindo as funções de cada botão de movimento pré programado
     def movement1(self):
-        print('\nMovement 1:')
-        movementTextSender('a')
+        movementTextSender('a', '\nMovement 1:')
     
     def movement2(self):
-        print('\nMovement 2:')
-        movementTextSender('b')
+        movementTextSender('b', '\nMovement 2:')
     
     def movement3(self):
-        print('\nMovement 3:')
-        movementTextSender('c')
+        movementTextSender('c', '\nMovement 3:')
     
     def movement4(self):
-        print('\nMovement 4:')
-        movementTextSender('d')
+        movementTextSender('d', '\nMovement 4:')
     
     def movement5(self):
-        print('\nMovement 5:')
-        movementTextSender('e')
+        movementTextSender('e', '\nMovement 5:')
     
     def movement6(self):
-        print('\nMovement 6:')
-        movementTextSender('f')
+        movementTextSender('f','\nMovement 6:')
     # Definições das funções finalizadas
 
     # Definindo as funções de cada botão de movimento independente
     def toTheRight(self):
-        print('\nMoving to the right')
-        movementTextSender('g')
+        movementTextSender('g', '\nMoving to the right')
     
     def toTheLeft(self):
-        print('\nMoving to the left')
-        movementTextSender('h')
+        movementTextSender('h', '\nMoving to the left')
     # Definições das funções finalizadas
 
 

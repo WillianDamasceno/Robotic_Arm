@@ -35,10 +35,24 @@ def serial_ports():
 
 print(serial_ports())"""
 
-import os
+"""import os
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 print(dir_path)
 
 cwd = os.getcwd()
 print(cwd)
+
+func = lambda: 1 + 1
+func1 = lambda num1: num1 + 1
+print(func1(func()))"""
+
+"""import time, sys
+
+for i in range(0, 10):
+    sys.stdout.write("\r{}".format(i))
+    sys.stdout.flush()
+    time.sleep(1)
+
+print ("\nFim")"""
+
