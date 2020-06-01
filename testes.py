@@ -44,8 +44,8 @@ cwd = os.getcwd()
 print(cwd)
 
 func = lambda: 1 + 1
-func1 = lambda num1: num1 + 1
-print(func1(func()))
+func1 = lambda num1, a: num1 + 1 + a
+print(func1(func(), int(input('number: '))))
 
 """import time, sys
 
@@ -55,4 +55,3 @@ for i in range(0, 10):
     time.sleep(1)
 
 print ("\nFim")"""
-

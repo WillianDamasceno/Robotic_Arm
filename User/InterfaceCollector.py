@@ -28,24 +28,6 @@ import sys
 import os
 
 
-def validationChacker():
-    if len(arduino.readline()) == 11:
-        print('\033[1;32mAvailable!\033[m')
-        return True
-    else:
-        print('\033[1;31mUnavailable!\033[m')
-        return False
-
-
-def movementTextSender(letter='', msg=''):
-    print(msg)
-    if validationChacker():
-        movementLetter = bytes(letter, 'utf-8')
-        arduino.write(movementLetter)
-        sleep(0.0001) # test
-        arduino.write('unavailable')# test
-
-
 class UI(QMainWindow):
     def __init__(self):
         super(UI, self).__init__()
@@ -58,61 +40,72 @@ class UI(QMainWindow):
 
         # Definindo os botões de movimentos pré programados
         self.movement1_button = self.findChild(QPushButton, 'Movement1')
-        self.movement1_button.clicked.connect(self.movement1)
+        self.movement1_button.clicked.connect(lambda: self.movementTextSender('a', '\nMovement 1'))
 
         self.movement2_button = self.findChild(QPushButton, 'Movement2')
-        self.movement2_button.clicked.connect(self.movement2)
+        self.movement2_button.clicked.connect(lambda: self.movementTextSender('b', '\nMovement 2:'))
 
         self.movement3_button = self.findChild(QPushButton, 'Movement3')
-        self.movement3_button.clicked.connect(self.movement3)
+        self.movement3_button.clicked.connect(lambda: self.movementTextSender('c', '\nMovement 3:'))
 
         self.movement4_button = self.findChild(QPushButton, 'Movement4')
-        self.movement4_button.clicked.connect(self.movement4)
+        self.movement4_button.clicked.connect(lambda: self.movementTextSender('d', '\nMovement 4:'))
 
         self.movement5_button = self.findChild(QPushButton, 'Movement5')
-        self.movement5_button.clicked.connect(self.movement5)
+        self.movement5_button.clicked.connect(lambda: self.movementTextSender('e', '\nMovement 5:'))
 
         self.movement6_button = self.findChild(QPushButton, 'Movement6')
-        self.movement6_button.clicked.connect(self.movement6)
+        self.movement6_button.clicked.connect(lambda: self.movementTextSender('f', '\nMovement 6:'))
         # Botões pré programados finalizados
 
         # Definindo os botões de movimentos independentes
         self.toTheRight_button = self.findChild(QPushButton, 'Right')
-        self.toTheRight_button.clicked.connect(self.toTheRight)
+        # self.toTheRight_button.setCheckable(True)
+        # self.totheRight_button.toggle()
+        self.toTheRight_button.clicked.connect(lambda: self.movementTextSender('g', '\nMoving to the right'))
 
         self.toTheLeft_button = self.findChild(QPushButton, 'Left')
-        self.toTheLeft_button.clicked.connect(self.toTheLeft)
+        # self.toTheLeft_button.setCheckable(True)
+        # self.toTheLeft_button.toggle()
+        self.toTheLeft_button.clicked.connect(lambda: self.movementTextSender('h', '\nMoving to the left'))
+
+        self.downS2_button = self.findChild(QPushButton, 'DownS2')
+        # self.downS2_button.setCheckable(True)
+        # self.downS2_button.toggle()
+        self.downS2_button.clicked.connect(lambda: self.movementTextSender('i', '\nServo 2 going down:'))
+
+        self.upS2_button = self.findChild(QPushButton, 'UpS2')
+        # self.upS2_button.setCheckable(True)
+        # self.upS2_button.toggle()
+        self.upS2_button.clicked.connect(lambda: self.movementTextSender('j', '\nServo 2 going up:'))
+
+        self.downS3_button = self.findChild(QPushButton, 'DownS3')
+        # self.downS3_button.setCheckable(True)
+        # self.downS3_button.toggle()
+        self.downS3_button.clicked.connect(lambda: self.movementTextSender('k', '\nServo 3 going down:'))
+
+        self.upS3_button = self.findChild(QPushButton, 'UpS3')
+        # self.upS3_button.setCheckable(True)
+        # self.upS3_button.toggle()
+        self.upS3_button.clicked.connect(lambda: self.movementTextSender('l', '\nServo 3 going up:'))
         # Botões de movimentos independentes finalizados
 
         self.show()
 
-    # Definindo as funções de cada botão de movimento pré programado
-    def movement1(self):
-        movementTextSender('a', '\nMovement 1:')
-    
-    def movement2(self):
-        movementTextSender('b', '\nMovement 2:')
-    
-    def movement3(self):
-        movementTextSender('c', '\nMovement 3:')
-    
-    def movement4(self):
-        movementTextSender('d', '\nMovement 4:')
-    
-    def movement5(self):
-        movementTextSender('e', '\nMovement 5:')
-    
-    def movement6(self):
-        movementTextSender('f','\nMovement 6:')
-    # Definições das funções finalizadas
+    def movementTextSender(self, movementLetter, msg):
+        print(msg)
 
-    # Definindo as funções de cada botão de movimento independente
-    def toTheRight(self):
-        movementTextSender('g', '\nMoving to the right')
-    
-    def toTheLeft(self):
-        movementTextSender('h', '\nMoving to the left')
-    # Definições das funções finalizadas
+        '''if self.movement1_button.isChecked():
+            print("button pressed")
+        else:
+            print("button released")'''
+        
+        validation = len(arduino.readline())
+        if validation == 11:
+            arduino.write(bytes(movementLetter, 'utf-8'))
+            print('\033[1;32mAvailable!\033[m')
+        else:
+            print('\033[1;31mUnavailable!\033[m')
 
 
 arduino = serial.Serial('COM4', baudrate=9600, timeout=1)
@@ -120,4 +113,6 @@ sleep(3)
 
 app = QApplication(sys.argv)
 UIWindow = UI()
-sys.exit(app.exec_())
+app.exec_()
+
+print('Testing')

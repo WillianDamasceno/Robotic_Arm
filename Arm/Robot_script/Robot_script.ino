@@ -1,7 +1,7 @@
   /* Robot_script  criado em maio de 2020. 
 
   Algoritmo para controle de braço robótico 6 eixos + garra;
-  Funciona apenas com scipt Python;
+  Funciona apenas com script Python;
   Comunicação Serial com PC necessária;
   */
 
@@ -24,14 +24,16 @@
 
 #include <VarSpeedServo.h>
 
-#define pinJ1 2    //orange
-#define pinJ2 3    //orange(black)   
-#define pinJ3 4    //yellow
-#define pinJ4 5    //green
-#define pinJ5 6    //blue
-#define pinJ6 7    //white
-#define pinJ7 8    //purple
+#define pinJ1 2    // orange
+#define pinJ2 3    // orange(black)   
+#define pinJ3 4    // yellow
+#define pinJ4 5    // green
+#define pinJ5 6    // blue
+#define pinJ6 7    // white
+#define pinJ7 8    // purple
 
+
+void MotionControls(int servoPsition, char rotation)
 void MOVE(int J1, int J2, int J3, int J4, int J5, int J6);
 void GRIPPER(bool Open, int Degree = 0);
 char rx;
@@ -44,7 +46,6 @@ VarSpeedServo servo4;
 VarSpeedServo servo5;
 VarSpeedServo servo6;
 VarSpeedServo servo7;
-
 
 
 void setup() {
@@ -63,153 +64,83 @@ void setup() {
   GRIPPER(true, 5);
 
   Serial.begin(9600);
+  Serial.write('available')
 }
 
 void loop() {
- 
-  while (Serial.available() <= 0) {
-    //O while é que espera ter informaçoes para ler.
-    ;   
-  }
 
-  if (Serial.available() > 0) {
-    rx = Serial.read();
-  }
+  while (Serial.available() <= 0) {;} // O while é que espera ter informaçoes para ler.
+ 
+  if (Serial.available() > 0) rx = Serial.read();
+
+  if (rx == 'a') MOVE(0, 0, 0, 0, 0, 0);
+  if (rx == 'b') MOVE(0, 2, 16, 0, 70, 0);
+  if (rx == 'c') MOVE(-34, 24, -10, 2, 74, -36);
+  if (rx == 'd') MOVE(32, 20, -4, -2, 72, 32);
+  if (rx == 'e') MOVE(20, -6, -10, -14, 66, 20);
+  if (rx == 'f') MOVE(90, -6, 10, -14, 66, 20);
   
-  if (rx == 'a') {
-    MOVE(0, 0, 0, 0, 0, 0);
-    Serial.println("available");
-  }
-  if (rx == 'b') {
-    MOVE(0, 1, 16, 0, 71, 0);
-    Serial.println("available");
-  }
-  if (rx == 'c') {
-    MOVE(-35, 24, -9, 1, 74, -35);
-    Serial.println("available");
-  }
-  if (rx == 'd') {
-    MOVE(33, 20, -4, -1, 72, 33);
-    Serial.println("available");
-  }
-  if (rx == 'e') {
-    MOVE(20, -7, -10, -14, 67, 20);
-    Serial.println("available");
-  }
-  if (rx == 'f') {
-    MOVE(90, -7, 10, -14, 67, 20);
-    Serial.println("available");
-  }
-  
-  //Servo 1 =========================
+  // Servo 1 =========================
   if (rx == 'g') {
-    int c = servo1.read();
-    if (0 <= c && c < 180) {
-      c++;
-      servo1.write(c, SPEED);
-      Serial.println("available");
-    }
+    servo1.write(MotionControls(servo1.read(), '+'), SPEED);
+    Serial.println("available");
   }
   if (rx == 'h') {
-    int c = servo1.read();
-    if (0 < c && c <= 180) {
-      c--;
-      servo1.write(c, SPEED);
-      Serial.println("available");
-    }
+    servo1.write(MotionControls(servo1.read(), '-'), SPEED);
+    Serial.println("available");
   }
 
-  //Servo 2 =========================
+  // Servo 2 =========================
   if (rx == 'i') {
-    int c = servo1.read();
-    if (0 <= c && c < 180) {
-      c++;
-      servo1.write(c, SPEED);
-      Serial.println("available");
-    }
+    servo2.write(MotionControls(servo2.read(), '+'), SPEED);
+    Serial.println("available");
   }
   if (rx == 'j') {
-    int c = servo1.read();
-    if (0 < c && c <= 180) {
-      c--;
-      servo1.write(c, SPEED);
-      Serial.println("available");
-    }
+    servo2.write(MotionControls(servo2.read(), '-'), SPEED);
+    Serial.println("available");
   }
  
-  //Servo 3 =========================
+  // Servo 3 =========================
   if (rx == 'k'){
-    int c = servo1.read();
-    if (0 <= c && c < 180) {
-      c++;
-      servo1.write(c, SPEED);
-      Serial.println("available");
-    }
+    servo3.write(MotionControls(servo3.read(), '+'), SPEED);
+    Serial.println("available");
   }
   if (rx == 'l') {
-    int c = servo1.read();
-    if (0 < c && c <= 180) {
-      c--;
-      servo1.write(c, SPEED);
-      Serial.println("available");
-    }
+    servo3.write(MotionControls(servo3.read(), '-'), SPEED);
+    Serial.println("available");
   }
 
-  //Servo 4 =========================
+  // Servo 4 =========================
   if (rx == 'm') {
-    int c = servo1.read();
-    if (0 <= c && c < 180) {
-      c++;
-      servo1.write(c, SPEED);
-      Serial.println("available");
-    }
+    servo4.write(MotionControls(servo4.read(), '+'), SPEED);
+    Serial.println("available");
   }
   if (rx == 'n') {
-    int c = servo1.read();
-    if (0 < c && c <= 180) {
-      c--;
-      servo1.write(c, SPEED);
-      Serial.println("available");
-    }
+    servo4.write(MotionControls(servo4.read(), '-'), SPEED);
+    Serial.println("available");
   }
 
-  //Servo 5 =========================
+  // Servo 5 =========================
   if (rx == 'o') {
-    int c = servo1.read();
-    if (0 <= c && c < 180) {
-      c++;
-      servo1.write(c, SPEED);
-      Serial.println("available");
-    }
+    servo5.write(MotionControls(servo5.read(), '+'), SPEED);
+    Serial.println("available");
   }
   if (rx == 'p') {
-    int c = servo1.read();
-    if (0 < c && c <= 180) {
-      c--;
-      servo1.write(c, SPEED);
-      Serial.println("available");
-    }
+    servo5.write(MotionControls(servo5.read(), '-'), SPEED);
+    Serial.println("available");
   }
 
-  //Servo 6 =========================
+  // Servo 6 =========================
   if (rx == 'q') {
-    int c = servo1.read();
-    if (0 <= c && c < 180) {
-      c++;
-      servo1.write(c, SPEED);
-      Serial.println("available");
-    }
+    servo6.write(MotionControls(servo6.read(), '+'), SPEED);
+    Serial.println("available");
   }
   if (rx == 'r') {
-    int c = servo1.read();
-    if (0 < c && c <= 180) {
-      c--;
-      servo1.write(c, SPEED);
-      Serial.println("available");
-    }
+    servo6.write(MotionControls(servo6.read(), '-'), SPEED);
+    Serial.println("available");
   }
 
-  //Servo 7 =========================
+  // Servo 7 =========================
   if (rx == 's') {
     GRIPPER(true, 5);
     Serial.println("available");
@@ -218,8 +149,11 @@ void loop() {
     GRIPPER(false);
     Serial.println("available");
   }
+}
 
-
+int MotionControls(int servoPsition, char rotation) {
+  if (rotation == '+' && 0 <= servoPsition && servoPsition < 180) {servoPsition += 2; return servoPsition;}
+  if (rotation == '-' && 0 < servoPsition && servoPsition <= 180) {servoPsition -= 2; return servoPsition;}
 }
 
 void MOVE(int J1, int J2, int J3, int J4, int J5, int J6) {
@@ -246,14 +180,14 @@ void MOVE(int J1, int J2, int J3, int J4, int J5, int J6) {
     servo6.wait();
 
     delay(1000);
+    Serial.println("available");
 }
 
 void GRIPPER(bool Close, int Degree) { 
   if (Close) {
-    servo7.write(Degree + 100, SPEED);       
+    servo7.write(Degree + 100, SPEED);
   }
   else {
-    servo7.write(50 + 100, SPEED);
-  //Soma 100 por conta de defeito mecânico em servo7.
+    servo7.write(50 + 100, SPEED); // Soma 100 por conta de defeito mecânico em servo7.
   }
 }
